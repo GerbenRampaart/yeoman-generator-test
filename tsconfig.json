@@ -7,11 +7,14 @@
         "module": "commonjs",
         "target": "es2019",
         "strict": true,
-        "outDir": "./dist",
+        "outDir": "./lib",
         "rootDir": "src",
         "esModuleInterop": true,
         "resolveJsonModule": true
     },
     "include": ["src/**/*.ts"],
-    "exclude": ["node_modules"]
+    "exclude": [
+      "node_modules",
+      "**/__tests__/*"
+    ]
 }

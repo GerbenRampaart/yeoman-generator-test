@@ -3,19 +3,24 @@
   "version": "0.1.0",
   "description": "",
   "engines": {
-    "node": "12"
+    "node": ">=12"
   },
   "scripts": {
+    "test": "jest --config jestconfig.json",
+    "format": "prettier --write \"src/**/*.ts\"",
     "prebuild": "rimraf dist",
-    "test": "npm run build && npm link ./dist && yo test",
+    "try": "npm run build && npm link ./lib && yo test",
     "compile": "tsc -p . --noEmit",
-    "build": "tsc -p . && ncp ./package.json ./dist/package.json",
-    "lint": "eslint 'src/**/*.{js,ts,tsx}' --quiet --fix",
-    "ncu": "ncu -a"
+    "build": "tsc -p .",
+    "lint": "eslint 'src/**/*.{js,ts,tsx}' --fix",
+    "ncu": "ncu -u",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags",
+    "patch": "npm version patch"
   },
-  "files": [
-    "generators"
-  ],
   "keywords": [
     "yeoman-generator"
   ],
@@ -33,7 +38,9 @@
     "prettier": "^2.1.2",
     "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "ncp": "^2.0.0",
     "@types/node": "^12.12.2"
-  }
+  },
+  "files": [
+    "lib/**/*"
+  ]
 }
