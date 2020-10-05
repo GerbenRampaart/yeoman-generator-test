@@ -1,6 +1,12 @@
 import Generator, { GeneratorOptions } from 'yeoman-generator';
-import { initializing } from "../priorities/initializing";
-import { apiLayerQuestion } from "../questions/layer/question";
+import { configuringImpl } from '../priorities/configuring';
+import { conflictsImpl } from '../priorities/conflicts';
+import { defaultImpl } from '../priorities/default';
+import { endImpl } from '../priorities/end';
+import { initializingImpl } from '../priorities/initializing';
+import { installImpl } from '../priorities/install';
+import { promptingImpl } from '../priorities/prompting';
+import { writingImpl } from '../priorities/writing';
 
 export class TestGenerator extends Generator<GeneratorOptions> {
     constructor(args: string[], opts: GeneratorOptions) {
@@ -21,57 +27,55 @@ export class TestGenerator extends Generator<GeneratorOptions> {
      * Your initialization methods (checking current project state, getting configs, etc)
      */
     async initializing(): Promise<void> {
-        await initializing(this);
+        await initializingImpl(this);
     }
 
     /**
      * Where you prompt users for options (where you’d call this.prompt())
      */
     async prompting(): Promise<void> {
-        
-        const layer = await this.prompt(await apiLayerQuestion());
-        this.log(layer);
+        await promptingImpl(this);
     }
 
     /**
      * Saving configurations and configure the project (creating .editorconfig files and other metadata files)
      */
     async configuring(): Promise<void> {
-        console.log('configuring');
+        await configuringImpl(this);
     }
 
     /**
      * If the method name doesn’t match a priority, it will be pushed to this group.
      */
     async default(): Promise<void> {
-        console.log('default');
+        await defaultImpl(this);
     }
 
     /**
      * Where you write the generator specific files (routes, controllers, etc)
      */
     async writing(): Promise<void> {
-        console.log('writing');
+        await writingImpl(this);
     }
 
     /**
      * Where conflicts are handled (used internally)
      */
     async conflicts(): Promise<void> {
-        console.log('conflicts');
+        await conflictsImpl(this);
     }
 
     /**
      * Where installations are run (npm, bower)
      */
     async install(): Promise<void> {
-        console.log('install');
+        await installImpl(this);
     }
 
     /**
      * Called last, cleanup, say good bye, etc
      */
     async end(): Promise<void> {
-        console.log('end');
+        await endImpl(this);
     }
 }

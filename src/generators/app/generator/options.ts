@@ -1,4 +1,4 @@
-import { GeneratorOptions } from "yeoman-generator";
+import { GeneratorOptions } from 'yeoman-generator';
 
 export class Options implements GeneratorOptions {
     bla(): void {

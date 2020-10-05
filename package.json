@@ -8,8 +8,8 @@
   "scripts": {
     "test": "jest --config jestconfig.json",
     "format": "prettier --write \"src/**/*.ts\"",
-    "prebuild": "rimraf dist",
-    "try": "npm run build && npm link ./lib && yo test",
+    "prebuild": "rimraf lib",
+    "try": "npm link && yo test",
     "compile": "tsc -p . --noEmit",
     "build": "tsc -p .",
     "lint": "eslint 'src/**/*.{js,ts,tsx}' --fix",

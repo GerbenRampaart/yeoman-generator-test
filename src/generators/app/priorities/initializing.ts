@@ -1,5 +1,5 @@
-import { TestGenerator } from "../generator/generator";
+import { TestGenerator } from '../generator/generator';
 
-export const initializing = async (ctx: TestGenerator): Promise<void> => {
-
-}
+export const initializingImpl = async (ctx: TestGenerator): Promise<void> => {
+    ctx.log('initializing');
+};

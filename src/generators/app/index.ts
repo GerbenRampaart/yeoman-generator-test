@@ -1,4 +1,3 @@
-import { TestGenerator } from "./generator/generator";
-
+import { TestGenerator } from './generator/generator';
 
 export default TestGenerator;
