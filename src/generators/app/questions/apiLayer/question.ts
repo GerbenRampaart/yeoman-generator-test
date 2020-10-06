@@ -1,7 +1,7 @@
 import { Question } from 'yeoman-generator';
-import { LayerAnswer, LayerChoiceKey } from './answer';
+import { ApiLayerAnswer, LayerChoiceKey } from './answer';
 
-export const apiLayerQuestion = async (): Promise<Question<LayerAnswer>> => {
+export const apiLayerQuestion = async (): Promise<Question<ApiLayerAnswer>> => {
     return {
         type: 'list',
         message: 'What type of api are you creating?',
@@ -12,6 +12,15 @@ export const apiLayerQuestion = async (): Promise<Question<LayerAnswer>> => {
             },
             {
                 name: 'system',
+            },
+            {
+                name: 'process',
+            },
+            {
+                name: 'mapper',
+            },
+            {
+                name: 'contract',
             },
         ],
     };
