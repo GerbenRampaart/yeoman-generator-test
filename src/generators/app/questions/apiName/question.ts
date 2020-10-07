@@ -1,11 +1,11 @@
 import { Question } from 'yeoman-generator';
-import { ApiNameAnswer, NameChoiceKey } from './answer';
+import { ApiNameAnswer, Key } from './answer';
 
 export const apiNameQuestion = async (): Promise<Question<ApiNameAnswer>> => {
   return {
     type: 'input',
     message: 'What will be the name of the api (like "awesome-customer")?',
-    name: NameChoiceKey,
+    name: Key,
     validate: async (input: string): Promise<string | boolean> => {
       if (input.length < 3) {
         return 'At least a name of length 3 plz. Think of something good';

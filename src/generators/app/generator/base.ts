@@ -3,7 +3,7 @@ import { Answers } from '../questions/answers';
 
 /**
  * We use a base class for the generator because that way you can have helper methods for the 
- * yeoman run context. See:
+ * yeoman run context without them being automatically run. See:
  * https://yeoman.io/authoring/running-context.html
  * 
  * So the base class will be keeping the state 

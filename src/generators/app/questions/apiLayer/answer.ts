@@ -1,5 +1,5 @@
 import { Answers } from 'inquirer';
-export const LayerChoiceKey = 'apiLayer';
+export const Key = 'apiLayer';
 
 export class ApiLayerAnswer implements Answers {
     apiLayer!: string;

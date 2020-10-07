@@ -34,7 +34,7 @@ export class TestGenerator extends BaseGenerator {
      * Where you prompt users for options (where you’d call this.prompt())
      */
     async prompting(): Promise<void> {
-        this.answers = await promptingImpl(this);
+        await promptingImpl(this);
     }
 
     /**
@@ -55,7 +55,6 @@ export class TestGenerator extends BaseGenerator {
      * Where you write the generator specific files (routes, controllers, etc)
      */
     async writing(): Promise<void> {
-        console.log(this.answers);
         await writingImpl(this);
     }
 

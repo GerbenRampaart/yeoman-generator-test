@@ -28,6 +28,7 @@
     "yeoman-generator": "^4.12.0"
   },
   "devDependencies": {
+    "del": "^6.0.0",
     "@types/yeoman-generator": "^4.11.2",
     "rimraf": "^3.0.2",
     "typescript": "^4.0.3",
