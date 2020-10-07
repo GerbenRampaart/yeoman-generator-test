@@ -1,14 +1,7 @@
 import { TestGenerator } from '../generator/generator';
+import { Answers } from '../questions/answers';
 import { apiLayerQuestion } from '../questions/apiLayer/question';
 import { apiNameQuestion } from '../questions/apiName/question';
-
-export interface Answers {
-  apiLayer: string;
-  apiName: string;
-  apiMajorVersion: number;
-  includeGraphQLExample: boolean;
-  includeRESTExample: boolean;
-}
 
 export const promptingImpl = async (ctx: TestGenerator): Promise<Answers> => {
   const layer = await ctx.prompt(await apiLayerQuestion());
