@@ -5,14 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {  
-            "name":"Debug 'app' generator",
+            "name":"Debug 'test' generator",
             "type":"node",
             "request":"launch",
             "protocol":"inspector",
             "cwd":"${workspaceRoot}",
             "runtimeExecutable":"${workspaceRoot}/node_modules/.bin/ts-node-dev",
             "args":[  
-               "${workspaceRoot}/src/generators/app/debugging.ts"
+               "${workspaceRoot}/src/generators/test/debugging.ts"
             ],
             "env": {
                 "NODE_ENV": "development"
@@ -22,7 +22,8 @@
             "console": "integratedTerminal",
             "skipFiles": [
                 "node_modules/**/*.js",
-                "<node_internals>/**/*.js"
+                "<node_internals>/**/*.js",
+                "lib/**"
             ]
          }
     ]
